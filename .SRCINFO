@@ -1,0 +1,19 @@
+pkgbase = qcom-fastrpc
+	pkgdesc = Qualcomm FastRPC user-space libraries and DSP RPC daemons
+	pkgver = 1.0.3
+	pkgrel = 1
+	url = https://github.com/qualcomm/fastrpc
+	arch = aarch64
+	license = BSD-3-Clause-Clear
+	makedepends = git
+	makedepends = autoconf
+	makedepends = automake
+	makedepends = libtool
+	makedepends = pkg-config
+	depends = libyaml
+	depends = libbsd
+	options = !strip
+	source = qcom-fastrpc::git+https://github.com/qualcomm/fastrpc.git#tag=v1.0.3
+	sha256sums = SKIP
+
+pkgname = qcom-fastrpc

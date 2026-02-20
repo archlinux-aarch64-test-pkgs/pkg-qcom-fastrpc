@@ -1,0 +1,5 @@
+/src
+/pkg
+/qcom-fastrpc
+*.zst
+*.gz
