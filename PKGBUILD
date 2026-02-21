@@ -3,16 +3,26 @@
 
 pkgname=qcom-fastrpc
 pkgver=1.0.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
-arch=('aarch64')
+arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
 license=('BSD-3-Clause-Clear')
 depends=('libyaml' 'libbsd')
 makedepends=('git' 'autoconf' 'automake' 'libtool' 'pkg-config')
-options=('!strip')
+conflicts=('qcom-fastrpc-git' 'quic-fastrpc-git' 'quic-fastrpc')
 source=("${pkgname}::git+https://gitea.classfun.cn:4443/mirrors/fastrpc.git#tag=v${pkgver}")
 sha256sums=('SKIP')
+
+prepare() {
+  cd "$pkgname"
+  git checkout $(git describe --tags --abbrev=0)
+}
+
+pkgver() {
+  cd "$pkgname"
+  git describe --tags --abbrev=0 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
 
 build() {
   cd "$pkgname"

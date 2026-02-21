@@ -3,3 +3,4 @@
 /qcom-fastrpc
 *.zst
 *.gz
+*.pkg.tar.*
