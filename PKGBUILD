@@ -2,8 +2,8 @@
 # Upstream: https://github.com/qualcomm/fastrpc
 
 pkgname=qcom-fastrpc
-pkgver=1.0.3
-pkgrel=3
+pkgver=1.0.4
+pkgrel=1
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
 arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
@@ -12,7 +12,7 @@ depends=('libyaml' 'libbsd')
 makedepends=('git' 'autoconf' 'automake' 'libtool' 'pkg-config')
 install=qcom-fastrpc.install
 conflicts=('qcom-fastrpc-git' 'quic-fastrpc-git' 'quic-fastrpc')
-source=("${pkgname}::git+https://gitea.classfun.cn:4443/mirrors/fastrpc.git#tag=v${pkgver}"
+source=("${pkgname}::git+https://github.com/qualcomm/fastrpc.git#tag=v${pkgver}"
         '99-fastrpc.rules'
         'fastrpc.sysusers')
 sha256sums=('SKIP' 'SKIP' 'SKIP')
