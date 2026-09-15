@@ -3,7 +3,7 @@
 
 pkgname=qcom-fastrpc
 pkgver=1.0.7
-pkgrel=1
+pkgrel=2
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
 arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
@@ -30,6 +30,7 @@ build() {
   autoreconf -is
   ./configure \
     --prefix=/usr \
+    --sbindir=/usr/bin \
     --with-systemdsystemunitdir=/usr/lib/systemd/system \
     --with-udevrulesdir=/usr/lib/udev/rules.d \
     --with-sysusersdir=/usr/lib/sysusers.d
