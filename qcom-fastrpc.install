@@ -2,6 +2,7 @@ post_install() {
   systemd-sysusers
   udevadm control --reload-rules
   udevadm trigger --subsystem-match=misc
+  udevadm trigger --subsystem-match=dma_heap
 
   echo ""
   echo ">>> To use FastRPC devices as a regular user, add yourself to the 'fastrpc' group:"
