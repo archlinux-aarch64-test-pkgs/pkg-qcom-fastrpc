@@ -2,20 +2,18 @@
 # Upstream: https://github.com/qualcomm/fastrpc
 
 pkgname=qcom-fastrpc
-pkgver=1.0.4
+pkgver=1.0.7
 pkgrel=1
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
 arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
 license=('BSD-3-Clause-Clear')
-depends=('libyaml' 'libbsd')
+depends=('libyaml' 'libbsd' 'acl')
 makedepends=('git' 'autoconf' 'automake' 'libtool' 'pkg-config')
 install=qcom-fastrpc.install
 conflicts=('qcom-fastrpc-git' 'quic-fastrpc-git' 'quic-fastrpc')
-source=("${pkgname}::git+https://github.com/qualcomm/fastrpc.git#tag=v${pkgver}"
-        '99-fastrpc.rules'
-        'fastrpc.sysusers')
-sha256sums=('SKIP' 'SKIP' 'SKIP')
+source=("${pkgname}::git+https://github.com/qualcomm/fastrpc.git#tag=v${pkgver}")
+sha256sums=('SKIP')
 
 prepare() {
   cd "$pkgname"
@@ -32,7 +30,9 @@ build() {
   autoreconf -is
   ./configure \
     --prefix=/usr \
-    --with-systemdsystemunitdir=/usr/lib/systemd/system
+    --with-systemdsystemunitdir=/usr/lib/systemd/system \
+    --with-udevrulesdir=/usr/lib/udev/rules.d \
+    --with-sysusersdir=/usr/lib/sysusers.d
   make
 }
 
@@ -41,9 +41,6 @@ package() {
   make install DESTDIR="$pkgdir"
 
   install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE.txt"
-
-  install -Dm644 "$srcdir/99-fastrpc.rules" "$pkgdir/usr/lib/udev/rules.d/99-fastrpc.rules"
-  install -Dm644 "$srcdir/fastrpc.sysusers" "$pkgdir/usr/lib/sysusers.d/fastrpc.conf"
 
   # Remove libtool archives
   find "$pkgdir" -name '*.la' -delete
