@@ -1,0 +1,7 @@
+[Unit]
+Description=Set Qualcomm SoC ID for FastRPC
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/fastrpc/setup-dsp.sh
+RemainAfterExit=yes
