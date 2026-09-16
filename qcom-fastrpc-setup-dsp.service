@@ -5,3 +5,6 @@ Description=Set Qualcomm SoC ID for FastRPC
 Type=oneshot
 ExecStart=/usr/libexec/fastrpc/setup-dsp.sh
 RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
