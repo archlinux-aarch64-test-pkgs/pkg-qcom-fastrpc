@@ -20,7 +20,7 @@ source=(
 )
 sha256sums=('SKIP'
             '6107d7d654fd835029fb82262f81c9a669f25b143d1d71d16aee8eab134d0030'
-            '7982379d3c934171a1a260563e9ea2be514da477b44634e3a36529616430ba8c'
+            '6e3f1aa959842d8754ffbcf466658161bd001b75d23bfe7608934bb1bdaa3099'
             'd57befd7f2fbf3b2ee2ca973b20a97551a3fb1ea6afdbfb67531698deff07619')
 
 prepare() {
