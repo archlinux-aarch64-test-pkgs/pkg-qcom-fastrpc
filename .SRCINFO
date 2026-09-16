@@ -1,7 +1,7 @@
 pkgbase = qcom-fastrpc
 	pkgdesc = Qualcomm FastRPC user-space libraries and DSP RPC daemons
 	pkgver = 1.0.7
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/qualcomm/fastrpc
 	install = qcom-fastrpc.install
 	arch = aarch64
@@ -20,6 +20,12 @@ pkgbase = qcom-fastrpc
 	conflicts = quic-fastrpc-git
 	conflicts = quic-fastrpc
 	source = qcom-fastrpc::git+https://github.com/qualcomm/fastrpc.git#tag=v1.0.7
+	source = setup-dsp.sh
+	source = qcom-fastrpc-setup-dsp.service
+	source = qcom-fastrpc-setup-dsp.conf
 	sha256sums = SKIP
+	sha256sums = 6107d7d654fd835029fb82262f81c9a669f25b143d1d71d16aee8eab134d0030
+	sha256sums = 7982379d3c934171a1a260563e9ea2be514da477b44634e3a36529616430ba8c
+	sha256sums = d57befd7f2fbf3b2ee2ca973b20a97551a3fb1ea6afdbfb67531698deff07619
 
 pkgname = qcom-fastrpc
