@@ -2,12 +2,12 @@
 # Upstream: https://github.com/qualcomm/fastrpc
 
 pkgname=qcom-fastrpc
-pkgver=1.0.7
-pkgrel=3
+pkgver=1.0.9
+pkgrel=1
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
 arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
-license=('BSD-3-Clause-Clear')
+license=('BSD-3-Clause')
 depends=('libyaml' 'libbsd' 'acl')
 makedepends=('git' 'autoconf' 'automake' 'libtool' 'pkg-config')
 install=qcom-fastrpc.install
