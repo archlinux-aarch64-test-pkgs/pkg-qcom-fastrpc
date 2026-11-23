@@ -13,8 +13,18 @@ setup_soc_id() {
   mount --bind "$fake_soc_id" /sys/devices/soc0/soc_id
 }
 
-case "$(cat /sys/firmware/devicetree/base/model 2>/dev/null)" in
-  'Radxa Dragon Q8B'|'Radxa DragonBay 4 Pro'|'Radxa DragonStation 6')
-    setup_soc_id 460
-    ;;
-esac
+# The devicetree compatible property is a NUL-separated list of strings.
+dt_compatible() {
+  local compat
+  local -a compats=()
+
+  mapfile -d '' -t compats 2>/dev/null < /sys/firmware/devicetree/base/compatible || return 1
+  for compat in "${compats[@]}"; do
+    [[ "$compat" == "$1" ]] && return 0
+  done
+  return 1
+}
+
+if dt_compatible 'qcom,sc8280xp'; then
+  setup_soc_id 460
+fi

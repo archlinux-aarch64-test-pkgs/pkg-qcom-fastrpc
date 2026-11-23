@@ -3,7 +3,7 @@
 
 pkgname=qcom-fastrpc
 pkgver=1.0.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Qualcomm FastRPC user-space libraries and DSP RPC daemons"
 arch=('aarch64' 'x86_64' 'armv7h')
 url="https://github.com/qualcomm/fastrpc"
@@ -19,7 +19,7 @@ source=(
   'qcom-fastrpc-setup-dsp.conf'
 )
 sha256sums=('SKIP'
-            '6107d7d654fd835029fb82262f81c9a669f25b143d1d71d16aee8eab134d0030'
+            'd467ef07e3d99bc8ad406043cde3f41e98f839d4d3f471b6ee822684fbafc979'
             '6e3f1aa959842d8754ffbcf466658161bd001b75d23bfe7608934bb1bdaa3099'
             'd57befd7f2fbf3b2ee2ca973b20a97551a3fb1ea6afdbfb67531698deff07619')
 
